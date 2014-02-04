@@ -48,7 +48,7 @@ void testLoaderErrorString(bool verbose, string errorFilename)
 
     try
     {
-        auto nodes = Loader(new MemoryStream(buffer)).loadAll();
+        Loader(new MemoryStream(buffer)).loadAll();
     }
     catch(YAMLException e)
     {
@@ -66,7 +66,7 @@ void testLoaderErrorString(bool verbose, string errorFilename)
  */
 void testLoaderErrorFilename(bool verbose, string errorFilename)
 {
-    try{auto nodes = Loader(errorFilename).loadAll();}
+    try{Loader(errorFilename).loadAll();}
     catch(YAMLException e)
     {
         if(verbose){writeln(typeid(e).toString(), "\n", e);}
@@ -84,7 +84,7 @@ void testLoaderErrorFilename(bool verbose, string errorFilename)
  */
 void testLoaderErrorSingle(bool verbose, string errorFilename)
 {
-    try{auto nodes = Loader(errorFilename).load();}
+    try{Loader(errorFilename).load();}
     catch(YAMLException e)
     {
         if(verbose){writeln(typeid(e).toString(), "\n", e);}
